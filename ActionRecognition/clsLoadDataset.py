@@ -12,9 +12,8 @@ def getDataLoader():
     if os.path.exists("HMDBDataset.pickle"):
         with open("HMDBDataset.pickle", "rb") as pkl:
             return pickle.load(pkl)
-        
-    ds = HMDBDs(
-        "data\HMDB_simp")
+    path = os.path.join('data', 'HMDB_simp')
+    ds = HMDBDs(path)
     with open("HMDBDataset.pickle", "wb") as pkl:
         pickle.dump(ds, pkl)
     return ds
